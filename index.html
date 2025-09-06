@@ -6,20 +6,17 @@
 <title>なるへ</title>
 <style>
   :root{
-    --bg1: #0f172a;
-    --bg2: #5b21b6;
+    --bg1: rgba(135,206,235,1);    /* スカイブルー */
+    --bg2: rgba(135,206,250,1);    /* 少し明るめのスカイブルー */
     --accent1: #ff6aa2;
     --accent2: #ff4d6d;
     --glass: rgba(255,255,255,0.06);
   }
-  html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans JP",sans-serif;}
   body{
     background:
-      radial-gradient(800px 600px at 10% 10%, rgba(135,206,235,1), transparent 20%),
-      radial-gradient(700px 500px at 90% 90%, rgba(135,206,235,0.7), transparent 20%),
+      radial-gradient(800px 600px at 10% 10%, rgba(135,206,250,0.08), transparent 20%),
+      radial-gradient(700px 500px at 90% 90%, rgba(135,206,235,0.07), transparent 20%),
       linear-gradient(160deg,var(--bg1),var(--bg2));
-    color:#fff;
-    overflow:hidden;
   }
 
   /* コンテンツ位置 */
