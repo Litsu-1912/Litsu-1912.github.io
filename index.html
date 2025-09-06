@@ -37,29 +37,42 @@
 
   /* ハート（要素を増やせば華やか） */
   .hearts{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
-  .heart{
-    position:absolute;
-    width:18px;height:18px;transform:rotate(45deg);
-    background:linear-gradient(135deg,var(--accent1),var(--accent2));
-    opacity:.85;
+  /* ハート */
+  .heart {
+    position: absolute;
+    width: 4vw;       /* 相対サイズ */
+    height: 4vw;
+    transform: rotate(45deg);
+    background: linear-gradient(135deg,var(--accent1),var(--accent2));
+    opacity: 0.85;
     animation: floatUp linear infinite;
-    border-radius:3px;
+    border-radius: 20%; /* 少し丸み */
   }
-  .heart::before,.heart::after{
-    content:"";position:absolute;width:18px;height:18px;border-radius:50%;
-    background:linear-gradient(135deg,var(--accent1),var(--accent2));
+  
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 100%;  /* 親要素に合わせる */
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg,var(--accent1),var(--accent2));
   }
-  .heart::before{left:-9px}
-  .heart::after{top:-9px}
+  
+  .heart::before { left: -50%; top: 0; }  /* 親の半分の位置 */
+  .heart::after  { top: -50%; left: 0; }
+  
+  @keyframes floatUp {
+    0%   { transform: translateY(140vh) rotate(45deg) scale(0.6); opacity:0; }
+    8%   { opacity:0.9; }
+    100% { transform: translateY(-120vh) rotate(45deg) scale(1); opacity:0; }
+  }
+  
+  /* レスポンシブ対応 */
+  @media (max-width:420px){
+    .heart { width: 8vw; height: 8vw; } /* スマホでは少し大きめに */
+  }
 
-  @keyframes floatUp{
-    0%{transform: translateY(140vh) rotate(45deg) scale(.6); opacity:0}
-    8%{opacity:.9}
-    100%{transform: translateY(-120vh) rotate(45deg) scale(1); opacity:0}
-  }
-
-  /* レスポンシブでハートサイズ調整 */
-  @media (max-width:420px){ .heart{width:14px;height:14px} .heart::before,.heart::after{width:14px;height:14px;left:-7px;top:-7px} }
 </style>
 </head>
 <body>
